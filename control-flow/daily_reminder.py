@@ -13,10 +13,12 @@ match priority:
         message = f"'{task}' has an unknown priority level"
 
 if time_bound == "yes":
-    message += " that requires immediate attention today!"
+    final_msg = f"{priority_msg} that requires immediate attention today!"
 else:
-    if priority in ["high", "medium", "low"]:  
-        message += ". Consider completing it when you have free time."
+    if priority in ["high", "medium", "low"]:
+        final_msg = f"{priority_msg}. Consider completing it when you have free time."
+    else:
+        final_msg = priority_msg
 
 
-print("\nReminder:", message)
+print(f"Reminder: {final_msg}")
